@@ -19,6 +19,16 @@ export const cache = new QueryCache({
   },
 })
 
+export const noCache = new QueryCache({
+  defaultConfig: {
+    queries: {
+      staleTime: 0,
+      cacheTime: 0,
+      queryFn: query,
+    },
+  },
+})
+
 export const prefetchPlanets = async () => {
   const cacheHit = cache.getQuery("/planets/")
   if (!cacheHit || cacheHit?.isStale()) {

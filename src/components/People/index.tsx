@@ -12,17 +12,19 @@ export function People() {
   return (
     <List>
       {status === "success" && data !== undefined && data.results
-        ? data.results.map((person) => (
-            <Card
-              key={person.name}
-              header={person.name}
-              onClick={() => history.push(getId(person.url))}
-            >
-              <p>{person.birth_year}</p>
-              <p>{person.gender}</p>
-              <p>{person.height}</p>
-            </Card>
-          ))
+        ? data.results.length
+          ? data.results.map((person) => (
+              <Card
+                key={person.name}
+                header={person.name}
+                onClick={() => history.push(getId(person.url))}
+              >
+                <p>{person.birth_year}</p>
+                <p>{person.gender}</p>
+                <p>{person.height}</p>
+              </Card>
+            ))
+          : "No People Found"
         : null}
     </List>
   )
