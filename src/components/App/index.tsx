@@ -26,7 +26,7 @@ export function App() {
             <Route path="/planets" exact={true} component={Planets} />
             <Route path="/people/:id" component={Person} />
             <Route path="/people" exact={true} component={People} />
-            <Redirect from="/" to="/planets" exact />
+            <Redirect to="/planets" exact />
           </Switch>
         </div>
       </Router>
